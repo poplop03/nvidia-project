@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="710" viewBox="0 0 1380 710">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#475569"/></marker>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#2563EB"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#D97706"/></marker>
+<marker id="arrow-rose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#E11D48"/></marker>
+<marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#7C3AED"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#059669"/></marker>
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+</defs>
+<rect width="1380" height="710" fill="#FFFFFF"/>
+<text x="32" y="38" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#0F172A">1. Greenhouse HMSG — End-to-End Architecture (M1–M8.2.1)</text>
+<text x="32" y="60" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">Offline ROS 2 mapping &amp; multimodal indexing feeding a fast-to-slow interactive query workspace</text>
+<rect x="32" y="74" width="14" height="14" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="52" y="85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#334155">Deterministic Robotics / Geometry</text>
+<rect x="296.4" y="74" width="14" height="14" rx="3" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+<text x="316.4" y="85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#334155">SAM3 / CLIP Perception</text>
+<rect x="486.0" y="74" width="14" height="14" rx="3" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="506.0" y="85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#334155">Gemma 4 VLM (Advisory)</text>
+<rect x="675.6" y="74" width="14" height="14" rx="3" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="695.6" y="85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#334155">HMSG Storage</text>
+<rect x="797.2" y="74" width="14" height="14" rx="3" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.5"/>
+<text x="817.2" y="85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#334155">Interactive UI / Router</text>
+<rect x="32" y="106" width="1316" height="282" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="46" y="129" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#334155">OFFLINE MAP BUILDING PIPELINE (M1–M7)  —  No live rosbag playback during inference</text>
+<rect x="52" y="140" width="198" height="108" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="52" y="140" width="198" height="6" rx="3" fill="#2563EB"/>
+<rect x="62" y="152" width="49" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="86.5" y="164.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">INPUT</text>
+<text x="64" y="186" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Sensor Bag (MCAP)</text>
+<text x="64" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Livox Mid-360 LiDAR</text>
+<text x="64" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">RealSense D455 RGB-D</text>
+<text x="64" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">FAST-LIO /Odometry + TF</text>
+<rect x="52" y="264" width="198" height="108" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="52" y="264" width="198" height="6" rx="3" fill="#2563EB"/>
+<rect x="62" y="276" width="44" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="84.0" y="288.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">M1</text>
+<text x="64" y="310" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Aisle Layout YAML</text>
+<text x="64" y="328" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">greenhouse_01 -&gt; aisle_01..03</text>
+<text x="64" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Polygons &amp; centerlines</text>
+<text x="64" y="360" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Frame: camera_init</text>
+<rect x="284" y="192" width="192" height="128" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="284" y="192" width="192" height="6" rx="3" fill="#2563EB"/>
+<rect x="294" y="204" width="44" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="316.0" y="216.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">M2</text>
+<text x="296" y="238" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Keyframe Extractor</text>
+<text x="296" y="256" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">extract_keyframes</text>
+<text x="296" y="272" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">~0.5 m or 15 deg steps</text>
+<text x="296" y="288" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Synced RGB+Depth+Pose</text>
+<text x="296" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">209 Views (3 aisles)</text>
+<line x1="250" y1="194" x2="284" y2="232" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="250" y1="318" x2="284" y2="276" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="510" y="192" width="192" height="128" rx="9" fill="#FFFFFF" stroke="#059669" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="510" y="192" width="192" height="6" rx="3" fill="#059669"/>
+<rect x="520" y="204" width="44" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="542.0" y="216.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#065F46">M3</text>
+<text x="522" y="238" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">SAM3 Offline 2D</text>
+<text x="522" y="256" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">run_sam3_offline</text>
+<text x="522" y="272" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">models/sam3.pt (GPU)</text>
+<text x="522" y="288" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">5 prompts (containers,</text>
+<text x="522" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">ladder, wheelbarrow)</text>
+<line x1="476" y1="256" x2="510" y2="256" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="736" y="192" width="196" height="128" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="736" y="192" width="196" height="6" rx="3" fill="#2563EB"/>
+<rect x="746" y="204" width="49" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="770.5" y="216.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">M4–M5</text>
+<text x="748" y="238" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">3D Projection &amp; Assoc</text>
+<text x="748" y="256" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">project_observations_3d</text>
+<text x="748" y="272" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">associate_objects</text>
+<text x="748" y="288" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">25 valid 3D obs -&gt; 6 Objects</text>
+<text x="748" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">View OBSERVES Object</text>
+<line x1="702" y1="256" x2="736" y2="256" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="966" y="140" width="214" height="108" rx="9" fill="#FFFFFF" stroke="#059669" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="966" y="140" width="214" height="6" rx="3" fill="#059669"/>
+<rect x="976" y="152" width="44" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="998.0" y="164.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#065F46">M6a</text>
+<text x="978" y="186" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">CLIP Embeddings</text>
+<text x="978" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">OpenAI ViT-B-16 (512-D)</text>
+<text x="978" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">209 View + 12 Object vecs</text>
+<text x="978" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">L2-normalized .npy</text>
+<rect x="966" y="264" width="214" height="108" rx="9" fill="#FFFFFF" stroke="#D97706" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="966" y="264" width="214" height="6" rx="3" fill="#D97706"/>
+<rect x="976" y="276" width="44" height="18" rx="9" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+<text x="998.0" y="288.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#92400E">M6b</text>
+<text x="978" y="310" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Gemma 4 Enrichment</text>
+<text x="978" y="328" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">gemma4:12b-it-q4_K_M</text>
+<text x="978" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Strict Pydantic JSON v2</text>
+<text x="978" y="360" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Physical &amp; traversability</text>
+<line x1="932" y1="236" x2="966" y2="194" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="932" y1="276" x2="966" y2="318" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="1210" y="192" width="120" height="128" rx="9" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="1210" y="192" width="120" height="6" rx="3" fill="#7C3AED"/>
+<rect x="1220" y="204" width="44" height="18" rx="9" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1"/>
+<text x="1242.0" y="216.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#5B21B6">M7</text>
+<text x="1222" y="238" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">SQLite</text>
+<text x="1222" y="256" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">M7 Import</text>
+<text x="1222" y="272" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">FK + Path</text>
+<text x="1222" y="288" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Validation</text>
+<text x="1222" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Idempotent</text>
+<line x1="1180" y1="194" x2="1210" y2="234" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="1180" y1="318" x2="1210" y2="278" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="32" y="424" width="456" height="254" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="46" y="447" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#5B21B6">SELF-CONTAINED HMSG DATASET (data/datasets/&lt;id&gt;/)</text>
+<rect x="52" y="464" width="416" height="92" rx="9" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="52" y="464" width="416" height="6" rx="3" fill="#7C3AED"/>
+<text x="64" y="489" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">SQLite Database (greenhouse_hmsg.sqlite)</text>
+<text x="64" y="507" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">11 tables: hierarchy, geometry, captions, traversability,</text>
+<text x="64" y="523" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">embedding index pointers, provenance (dataset_root=&#x27;.&#x27;)</text>
+<rect x="52" y="572" width="416" height="92" rx="9" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="52" y="572" width="416" height="6" rx="3" fill="#7C3AED"/>
+<text x="64" y="597" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Filesystem Media &amp; Vectors (relative paths only)</text>
+<text x="64" y="615" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">keyframes/{rgb,depth,camera_info} | observations/{masks,crops}</text>
+<text x="64" y="631" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">embeddings/{view,object}_embeddings.npy | semantics/*.jsonl</text>
+<path d="M 1270 320 L 1270 406 L 260 406 L 260 424" fill="none" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+<rect x="601.2" y="395" width="327.6" height="16" rx="4" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="765" y="407" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#7C3AED">M7 persists graph metadata + relative media paths</text>
+<rect x="522" y="424" width="826" height="254" rx="12" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.5"/>
+<text x="536" y="447" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#075985">INTERACTIVE QUERY &amp; DIALOGUE WORKSPACE (M8–M8.2.1)</text>
+<rect x="544" y="462" width="186" height="166" rx="9" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="544" y="462" width="186" height="6" rx="3" fill="#0284C7"/>
+<rect x="554" y="474" width="84" height="18" rx="9" fill="#F0F9FF" stroke="#0284C7" stroke-width="1"/>
+<text x="596.0" y="486.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#075985">M8.1–8.2.1</text>
+<text x="556" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Operator / Browser UI</text>
+<text x="556" y="526" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">FastAPI (query_hmsg_web)</text>
+<text x="556" y="542" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Modes: Auto / Chat / Map</text>
+<text x="556" y="558" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Visual gallery + SVG graph</text>
+<text x="556" y="574" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Verified facts + safety</text>
+<text x="556" y="590" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">warning badge</text>
+<rect x="766" y="462" width="246" height="166" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="766" y="462" width="246" height="6" rx="3" fill="#2563EB"/>
+<rect x="776" y="474" width="63" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="807.5" y="486.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">M8 FAST</text>
+<text x="778" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Fast Retrieval &amp; Spatial</text>
+<text x="778" y="526" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">semantic_dialogue + retrieval</text>
+<text x="778" y="542" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">1. Rule / Gemma intent parse</text>
+<text x="778" y="558" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">2. SQLite hierarchy filter</text>
+<text x="778" y="574" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">3. CLIP ViT-B-16 cosine rank</text>
+<text x="778" y="590" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">4. Python centerline s, head/tail</text>
+<rect x="1048" y="462" width="280" height="166" rx="9" fill="#FFFFFF" stroke="#D97706" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="1048" y="462" width="280" height="6" rx="3" fill="#D97706"/>
+<rect x="1058" y="474" width="63" height="18" rx="9" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+<text x="1089.5" y="486.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#92400E">M8 SLOW</text>
+<text x="1060" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Gemma 4 Verification &amp; Reply</text>
+<text x="1060" y="526" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Only invoked when ambiguous (top-3)</text>
+<text x="1060" y="542" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">or composing grounded NL reply</text>
+<text x="1060" y="558" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Cannot modify IDs or 3D geometry</text>
+<text x="1060" y="574" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Enforces geometric verification</text>
+<text x="1060" y="590" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Template fallback if Ollama offline</text>
+<line x1="730" y1="528" x2="766" y2="528" stroke="#0284C7" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+<line x1="766" y1="560" x2="730" y2="560" stroke="#0284C7" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+<line x1="1012" y1="528" x2="1048" y2="528" stroke="#D97706" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+<line x1="1048" y1="560" x2="1012" y2="560" stroke="#D97706" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+<line x1="488" y1="510" x2="544" y2="510" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+<text x="516.0" y="502.0" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#7C3AED">images</text>
+<path d="M 488 648 L 889 648 L 889 628" fill="none" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+<text x="900" y="666" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#7C3AED">SQLite metadata + precomputed CLIP .npy vectors (read-only at query time)</text>
+</svg>

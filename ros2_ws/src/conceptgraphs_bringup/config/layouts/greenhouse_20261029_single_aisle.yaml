@@ -1,0 +1,20 @@
+# Frozen layout used to reproduce the completed NVIDIA single-aisle dataset.
+mode: single_aisle
+
+greenhouse:
+  id: greenhouse_01
+  frame_id: camera_init
+
+aisles:
+  - id: aisle_01
+    name: Aisle 1
+    polygon_xy:
+      - [1.0, 2.0]
+      - [1.0, -1.4]
+      - [30.0, -1.4]
+      - [30.0, 2.0]
+    centerline:
+      - [1.0, 0.3]
+      - [30.0, 0.3]
+    head_point: [1.0, 0.3]
+    tail_point: [30.0, 0.3]

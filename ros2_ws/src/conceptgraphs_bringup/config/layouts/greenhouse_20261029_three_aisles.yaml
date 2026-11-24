@@ -1,0 +1,48 @@
+# Provisional geometry derived from the recorded trajectory and sampled LiDAR
+# map. The right-hand turn regions are intentionally outside all polygons so
+# transition Views remain unassigned. Visually QA before treating as final.
+mode: polygon
+
+greenhouse:
+  id: greenhouse_01
+  frame_id: camera_init
+
+aisles:
+  - id: aisle_01
+    name: Aisle 1
+    polygon_xy:
+      - [-6.0, -1.5]
+      - [-6.0, 2.5]
+      - [23.0, 2.5]
+      - [23.0, -1.5]
+    centerline:
+      - [-5.5, 0.5]
+      - [23.0, 0.5]
+    head_point: [-5.5, 0.5]
+    tail_point: [23.0, 0.5]
+
+  - id: aisle_02
+    name: Aisle 2
+    polygon_xy:
+      - [-6.0, 3.75]
+      - [-6.0, 7.75]
+      - [23.0, 7.75]
+      - [23.0, 3.75]
+    centerline:
+      - [-5.5, 5.75]
+      - [23.0, 5.75]
+    head_point: [-5.5, 5.75]
+    tail_point: [23.0, 5.75]
+
+  - id: aisle_03
+    name: Aisle 3
+    polygon_xy:
+      - [-6.0, 8.9]
+      - [-6.0, 12.9]
+      - [23.0, 12.9]
+      - [23.0, 8.9]
+    centerline:
+      - [-5.5, 10.9]
+      - [23.0, 10.9]
+    head_point: [-5.5, 10.9]
+    tail_point: [23.0, 10.9]

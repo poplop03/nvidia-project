@@ -1,0 +1,11 @@
+# Keep ripgrep, fd, and AI agent code search focused on active source & markdown docs.
+# Explicit file reads still work whenever needed.
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+data/
+models/
+scratch/
+docs/archive/reports/
+__pycache__/
+.pytest_cache/

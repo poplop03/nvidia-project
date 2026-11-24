@@ -1,0 +1,35 @@
+version: greenhouse_semantics_v2
+
+common_rules: |
+  Return only JSON conforming exactly to the supplied JSON Schema.
+  Base every statement on visible evidence and use unknown when evidence is insufficient.
+  Do not invent or modify object IDs, View IDs, aisle IDs, coordinates, dimensions, or geometry.
+  Do not claim metric clearance from appearance alone.
+  requires_geometric_verification must always be true.
+  physical_properties is a semantic visual prior, not a measured physical result.
+  A soft object is not automatically traversable because it may cause slipping, entanglement,
+  wheel blockage, crop damage, or object damage.
+  blocking_object_ids and traversable_object_ids must be disjoint and may contain only supplied IDs.
+  Apply this decision table exactly before returning JSON:
+  - passable: can_robot_pass=true and blocking_object_ids must be empty.
+  - blocked: can_robot_pass=false and blocking_object_ids must contain at least one supplied ID.
+  - uncertain: can_robot_pass=null.
+  A non-traversable object beside the path may remain in visible_obstacles, but it must not appear in
+  blocking_object_ids when the path is passable. Only put an ID in traversable_object_ids when the
+  robot may safely contact or pass over that object; being able to drive around it is not sufficient.
+
+object_prompt: |
+  Analyze the same target greenhouse object using the supplied representative crop, context crop,
+  and multi-view RGB images. Describe exactly one target item in physical_objects.
+  Populate scene_summary, physical properties, object traversability, greenhouse context, and
+  view-context traversability cues. Use the supplied target object ID if it appears in any
+  traversability list or visible_obstacles. Conservatively describe relative position and occlusion.
+
+view_prompt: |
+  Analyze this greenhouse RGB View and all supplied linked Object IDs.
+  In physical_objects, describe only clearly visible objects from the supplied linked Object IDs;
+  do not add the pathway, greenhouse structure, plants, or unlinked items as physical_objects.
+  Assess the whole visible travel corridor in traversability_cues, including whether each linked
+  object is centered on the path, beside it, or outside drivable space. Do not classify an object
+  as traversable merely because the robot may be able to drive around it. If an ID is not visibly
+  supported, omit it from blocking_object_ids, traversable_object_ids, and visible_obstacles.

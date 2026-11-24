@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="470" viewBox="0 0 1360 470">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#475569"/></marker>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#2563EB"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#D97706"/></marker>
+<marker id="arrow-rose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#E11D48"/></marker>
+<marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#7C3AED"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#059669"/></marker>
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+</defs>
+<rect width="1360" height="470" fill="#FFFFFF"/>
+<text x="32" y="38" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#0F172A">4. 3D Coordinate &amp; Frame Transform Chain (2D Pixel Mask → Metric Aisle Object)</text>
+<text x="32" y="60" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">Deterministic geometric pipeline from RealSense D455 pixel coordinates to persistent camera_init 3D objects</text>
+<rect x="36" y="108" width="224" height="152" rx="9" fill="#FFFFFF" stroke="#059669" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="36" y="108" width="224" height="6" rx="3" fill="#059669"/>
+<rect x="46" y="120" width="91" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+<text x="91.5" y="132.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#065F46">IMAGE PLANE</text>
+<text x="48" y="154" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">1. SAM3 2D Mask</text>
+<text x="48" y="172" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Input: Keyframe RGB (M2)</text>
+<text x="48" y="188" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Binary mask eroded 5 px</text>
+<text x="48" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">(reduces border depth bleed)</text>
+<text x="48" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">2D bbox + tight/context crops</text>
+<text x="48" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Pixel coords: (u, v)</text>
+<rect x="300" y="108" width="232" height="152" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="300" y="108" width="232" height="6" rx="3" fill="#2563EB"/>
+<rect x="310" y="120" width="77" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="348.5" y="132.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">CAMERA 3D</text>
+<text x="312" y="154" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">2. Depth Back-Projection</text>
+<text x="312" y="172" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Aligned 16-bit depth (mm -&gt; m)</text>
+<text x="312" y="188" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Valid depth: 0.15 m .. 15.0 m</text>
+<text x="312" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Median outlier band: max(0.2m,10%)</text>
+<text x="312" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Min 10 pts | Max range: 3.0 m</text>
+<text x="312" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Frame: camera_color_optical_frame</text>
+<line x1="260" y1="184" x2="300" y2="184" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="572" y="108" width="240" height="152" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="572" y="108" width="240" height="6" rx="3" fill="#2563EB"/>
+<rect x="582" y="120" width="98" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="631.0" y="132.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">TF TRANSFORM</text>
+<text x="584" y="154" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">3. Static &amp; Odometry TF</text>
+<text x="584" y="172" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Static chain (/tf_static):</text>
+<text x="584" y="188" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">base_link -&gt; camera_link -&gt;</text>
+<text x="584" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">camera_color_frame -&gt; optical</text>
+<text x="584" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Dynamic pose (/Odometry):</text>
+<text x="584" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">camera_init -&gt; body (FAST-LIO)</text>
+<line x1="532" y1="184" x2="572" y2="184" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="852" y="108" width="224" height="152" rx="9" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="852" y="108" width="224" height="6" rx="3" fill="#7C3AED"/>
+<rect x="862" y="120" width="77" height="18" rx="9" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1"/>
+<text x="900.5" y="132.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#5B21B6">WORLD OBS</text>
+<text x="864" y="154" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">4. M4 Observation 3D</text>
+<text x="864" y="172" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">World frame: camera_init</text>
+<text x="864" y="188" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Robust 3D centroid + bbox</text>
+<text x="864" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Rejected kept for QA audit</text>
+<text x="864" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">(3-aisle: 25 valid / 165 rej)</text>
+<text x="864" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Never modified by M5+</text>
+<line x1="812" y1="184" x2="852" y2="184" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="1116" y="108" width="212" height="152" rx="9" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="1116" y="108" width="212" height="6" rx="3" fill="#0284C7"/>
+<rect x="1126" y="120" width="112" height="18" rx="9" fill="#F0F9FF" stroke="#0284C7" stroke-width="1"/>
+<text x="1182.0" y="132.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#075985">PERSISTENT OBJ</text>
+<text x="1128" y="154" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">5. M5 Object &amp; Aisle</text>
+<text x="1128" y="172" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Multi-view clustering /</text>
+<text x="1128" y="188" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Tracklet + Hungarian merge</text>
+<text x="1128" y="204" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Representative View score</text>
+<text x="1128" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Aisle polygon assignment</text>
+<text x="1128" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Centerline s in [0.0, 1.0]</text>
+<line x1="1076" y1="184" x2="1116" y2="184" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="36" y="294" width="1292" height="144" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+<text x="50" y="317" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#334155">AISLE CENTERLINE PROJECTION (camera_init)  —  Fixed physical head/tail independent of robot travel_pass</text>
+<rect x="110" y="346" width="380" height="34" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+<rect x="490" y="346" width="380" height="34" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+<rect x="870" y="346" width="380" height="34" rx="6" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.5"/>
+<text x="300" y="368" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#1E40AF">HEAD  (0.00 ≤ s &lt; 0.33)</text>
+<text x="680" y="368" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#92400E">MIDDLE  (0.33 ≤ s &lt; 0.67)</text>
+<text x="1060" y="368" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#9D174D">TAIL  (0.67 ≤ s ≤ 1.00)</text>
+<text x="110" y="405" font-family="DejaVu Sans Mono, monospace" font-size="11" fill="#334155">s = 0.00 (Head point)</text>
+<text x="680" y="405" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="11" fill="#334155">Verified outputs: section, tendency, distance_from_head_m, distance_to_tail_m, centerline_offset_m</text>
+<text x="1250" y="405" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="11" fill="#334155">s = 1.00 (Tail point)</text>
+</svg>

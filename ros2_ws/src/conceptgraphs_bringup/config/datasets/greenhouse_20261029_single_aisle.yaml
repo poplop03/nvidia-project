@@ -1,0 +1,8 @@
+# Reproducible dataset-specific overrides. Shared pipeline parameters remain in
+# ../keyframe_extractor.yaml and are merged recursively by load_config().
+extends: ../keyframe_extractor.yaml
+
+dataset_id: greenhouse_20261029_aisle01
+bag_path: data/bags/nvidia_data_20261029_144639_humble
+output_dir: data/datasets/greenhouse_20261029_aisle01
+layout_path: layouts/greenhouse_20261029_single_aisle.yaml

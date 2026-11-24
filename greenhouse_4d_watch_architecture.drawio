@@ -1,0 +1,164 @@
+<mxfile host="app.diagrams.net" modified="2026-11-24T09:05:00.000Z" agent="Antigravity" version="24.7.17" type="device">
+  <diagram id="greenhouse-4d-watch-arch" name="Greenhouse 4D Watch Architecture">
+    <mxGraphModel dx="1420" dy="960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="960" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;Greenhouse 4D Watch — Abstracted Architecture&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="900" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="4D Change-Intelligence Platform + H100 Synthetic-to-Edge VLM Flywheel built on top of Static 3D Scene Graphs" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#4B5563;" vertex="1" parent="1">
+          <mxGeometry x="40" y="42" width="950" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== UPSTREAM BAND ==================== -->
+        <mxCell id="upstream_group" value="&lt;b&gt;UPSTREAM — Existing Static 3D Scene Graph Scans (Read-Only, Untouched)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#6B7280;dashed=1;dashPattern=6 4;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=13;fontColor=#374151;" vertex="1" parent="1">
+          <mxGeometry x="40" y="75" width="1320" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="run_t0" value="&lt;b&gt;Scan t0 (Earlier Run)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#4B5563;&quot;&gt;3D map + object crops + embeddings&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9CA3AF;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="112" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="run_t1" value="&lt;b&gt;Scan t1 (Newer Run)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#4B5563;&quot;&gt;3D map + object crops + embeddings&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9CA3AF;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="510" y="112" width="380" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="run_tn" value="&lt;b&gt;Scan tn (Future Multi-Day Runs)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#4B5563;&quot;&gt;Existing perception pipeline stays untouched&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9CA3AF;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="950" y="112" width="380" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== TRACK A BAND ==================== -->
+        <mxCell id="track_a_group" value="&lt;b&gt;TRACK A — 4D Change-Detection &amp; Operator Triage Platform&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=14;fontColor=#1E3A8A;" vertex="1" parent="1">
+          <mxGeometry x="40" y="215" width="1320" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a1_ingest" value="&lt;b&gt;1. 4D Change Engine&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#1D4ED8;&quot;&gt;Deterministic (No LLM)&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Stores multi-day runs in Diff DB&lt;br&gt;• Matches objects across time (3D + visual)&lt;br&gt;• Detects: Moved, Appeared, Disappeared,&lt;br&gt;  or State Changed&lt;br&gt;• Filters out minor sensor noise" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#60A5FA;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="260" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a2_vlm_diff" value="&lt;b&gt;2. Visual Diff Verifier&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#1D4ED8;&quot;&gt;Uses VLM (Images + Facts)&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Compares before (t0) &amp;amp; after (t1) crops&lt;br&gt;• Explains what changed &amp;amp; risk level&lt;br&gt;• Checks aisle passability impact&lt;br&gt;• Always keeps safety gate:&lt;br&gt;  &lt;i&gt;requires_geometric_verification: true&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#60A5FA;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="395" y="260" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a3_agent" value="&lt;b&gt;3. Triage Agent &amp;amp; Tools&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#1D4ED8;&quot;&gt;Uses LLM + MCP Tools&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Answers operator &amp;amp; history queries&lt;br&gt;• Auto-logs routine changes silently&lt;br&gt;• Escalates only high-risk / ambiguous&lt;br&gt;  events to a human (HITL gate)&lt;br&gt;• Drafts inspection alerts or tasks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#60A5FA;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="720" y="260" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a4_ui" value="&lt;b&gt;4. Operator Console&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#1D4ED8;&quot;&gt;Web UI &amp;amp; Cloud Deployment (No LLM)&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Side-by-side before/after visual viewer&lt;br&gt;• Greenhouse aisle risk map &amp;amp; timeline&lt;br&gt;• Human Approve / Dismiss / Edit actions&lt;br&gt;  (rare corrections feed Track B)&lt;br&gt;• Containerized &amp;amp; cloud-ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#60A5FA;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="260" width="285" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SHARED MODEL GATEWAY ==================== -->
+        <mxCell id="gateway" value="&lt;b&gt;Unified Model Gateway&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#92400E;&quot;&gt;Switch cleanly between: H100 Server VLM  •  Specialized Small Edge VLM (Robot / Local)  •  Cloud APIs&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=2;fontSize=13;fontColor=#78350F;" vertex="1" parent="1">
+          <mxGeometry x="340" y="505" width="720" height="58" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== TRACK B BAND ==================== -->
+        <mxCell id="track_b_group" value="&lt;b&gt;TRACK B — Synthetic-to-Edge VLM Data Flywheel (Powered by 8× NVIDIA H100s)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=14;fontColor=#065F46;" vertex="1" parent="1">
+          <mxGeometry x="40" y="605" width="1320" height="255" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b5_synth" value="&lt;b&gt;5. Synthetic Scenario Generator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#047857;&quot;&gt;Video / World Model (e.g. NVIDIA Cosmos)&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Starts from real greenhouse t0 frames&lt;br&gt;• Generates rare t1 scenarios: fallen&lt;br&gt;  obstacles, lighting shifts, state changes&lt;br&gt;• Expands visual diversity safely&lt;br&gt;• Used for &lt;b&gt;training only&lt;/b&gt; (never eval)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34D399;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="650" width="280" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b6_teacher" value="&lt;b&gt;6. Teacher Data Builder&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#047857;&quot;&gt;Large 70B+ VLM + Auto-Verifier&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Combines real + synthetic pairs&lt;br&gt;• Generates verified answers from facts&lt;br&gt;• Rejects fake IDs or unsafe outputs&lt;br&gt;• Builds Good vs. Bad preference pairs&lt;br&gt;  (plus real operator corrections)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34D399;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="395" y="650" width="280" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b7_train" value="&lt;b&gt;7. Small Model Post-Training&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#047857;&quot;&gt;Fine-Tuning &amp;amp; Safety Alignment&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Trains a compact 3B–8B Edge VLM&lt;br&gt;• Learns greenhouse diff reasoning&amp;nbsp;&lt;br&gt;  &amp;amp; strict output format&lt;br&gt;• Aligned to never invent IDs or bypass&lt;br&gt;  navigation safety gates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34D399;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="720" y="650" width="280" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b8_eval" value="&lt;b&gt;8. Real-World Eval &amp;amp; Benchmark&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#047857;&quot;&gt;100% Real Greenhouse Test Set&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Tests Real-Only vs. Real+Synthetic&lt;br&gt;• Compares Cloud API vs. Large Teacher&lt;br&gt;  vs. Specialized Small Edge Model&lt;br&gt;• Tracks accuracy, safety &amp;amp; latency&lt;br&gt;• Approves model for deployment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34D399;strokeWidth=1.5;align=left;verticalAlign=top;spacing=10;fontSize=12;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="650" width="285" height="185" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ARROWS ==================== -->
+        <!-- Upstream to Track A (1) -->
+        <mxCell id="e_up_a1" value="Read-only ingest" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4B5563;strokeWidth=1.5;fontSize=11;fontColor=#374151;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="run_t0" target="a1_ingest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_up2_a1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4B5563;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="run_t1" target="a1_ingest">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="195" />
+              <mxPoint x="280" y="195" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Track A internal flow -->
+        <mxCell id="e_a1_a2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563EB;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a1_ingest" target="a2_vlm_diff">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a2_a3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563EB;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a2_vlm_diff" target="a3_agent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a3_a4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563EB;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a3_agent" target="a4_ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Track A <-> Model Gateway -->
+        <mxCell id="e_a2_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D97706;strokeWidth=1.5;startArrow=classic;endArrow=classic;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.27;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a2_vlm_diff" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a3_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D97706;strokeWidth=1.5;startArrow=classic;endArrow=classic;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.72;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a3_agent" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Track B internal flow -->
+        <mxCell id="e_b5_b6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#059669;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b5_synth" target="b6_teacher">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_b6_b7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#059669;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b6_teacher" target="b7_train">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_b7_b8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#059669;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="b7_train" target="b8_eval">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Real frames & diffs (1) -> Synthetic Generator (5) & Teacher Builder (6) -->
+        <mxCell id="e_a1_b5" value="Real frames &amp;amp; diffs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#059669;strokeWidth=2;fontSize=11;fontColor=#065F46;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a1_ingest" target="b5_synth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_b6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#059669;strokeWidth=1.5;dashed=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a1_ingest" target="b6_teacher">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="582" />
+              <mxPoint x="465" y="582" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Operator corrections (4) -> Teacher Builder (6) routed cleanly along outside right/bottom -->
+        <mxCell id="e_a4_b6" value="Operator approvals &amp;amp; corrections (feedback loop)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6366F1;strokeWidth=1.5;dashed=1;fontSize=11;fontColor=#4338CA;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="a4_ui" target="b6_teacher">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1259" y="488" />
+              <mxPoint x="1378" y="488" />
+              <mxPoint x="1378" y="895" />
+              <mxPoint x="535" y="895" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Validated Model (8) -> Model Gateway -->
+        <mxCell id="e_b8_gw" value="Deploy validated model" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D97706;strokeWidth=2;fontSize=11;fontColor=#92400E;exitX=0.45;exitY=0;exitDx=0;exitDy=0;entryX=0.88;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="b8_eval" target="gateway">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1173" y="582" />
+              <mxPoint x="974" y="582" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Footer Legend -->
+        <mxCell id="footer" value="Core Rules: 3D positions &amp; IDs come from deterministic geometry (never invented by VLMs)  •  Synthetic data is for training only; evaluation is 100% real data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;fontColor=#6B7280;" vertex="1" parent="1">
+          <mxGeometry x="40" y="915" width="1320" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

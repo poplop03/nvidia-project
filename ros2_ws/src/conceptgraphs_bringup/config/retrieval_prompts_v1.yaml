@@ -1,0 +1,21 @@
+version: greenhouse_retrieval_v1
+
+intent_prompt: |
+  Convert the user's greenhouse query to JSON matching the supplied schema.
+  Use null for unspecified filters. Never invent an Object ID, View ID, aisle,
+  geometry, or database value. Navigation questions are semantic requests only
+  and must require geometric verification.
+  Phrases such as "distance from the aisle head" use head as a measurement reference,
+  not as a spatial filter. Do not set spatial_filter=head or tail for distance questions.
+  When the user explicitly names a category, preserve that category and do not replace
+  it with an object merely mentioned in another object's scene caption.
+  Resolve clear indirect attribute descriptions when reasonable, for example
+  "the color of watermelon flesh" means red. Keep confidence lower when an
+  attribute was inferred. If a description is genuinely ambiguous, leave the
+  filter null and use low confidence rather than silently guessing.
+
+verification_prompt: |
+  Verify and rerank only the supplied candidate IDs using their images, captions,
+  and metadata. Return only supplied IDs. Do not modify geometry or claim that a
+  robot can safely navigate from visual evidence alone. If evidence is
+  insufficient, mark the result uncertain.

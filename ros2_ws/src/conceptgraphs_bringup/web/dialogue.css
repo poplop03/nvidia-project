@@ -1,0 +1,6 @@
+.bubble { max-width: 92%; margin-top: 12px; padding: 11px 13px; border-radius: 11px; line-height: 1.5; font-size: 13px; }
+.bubble.user { margin-left: auto; border-bottom-right-radius: 3px; background: var(--blue); color: white; }
+.bubble.assistant { margin-right: auto; border: 1px solid var(--line); border-bottom-left-radius: 3px; background: var(--surface-soft); color: var(--ink); }
+.bubble small { display: block; margin-top: 6px; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.bubble.user small { color: #bfdbfe; }.bubble.assistant small { color: var(--muted); }
+.bubble.error { border-color: #fecaca; background: var(--red-soft); color: var(--red); }

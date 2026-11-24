@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Greenhouse HMSG Workspace</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/dialogue.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">GH</div>
+        <div><p class="eyebrow">Semantic mapping workspace</p><h1>Greenhouse HMSG</h1></div>
+      </div>
+      <div class="dataset-status" aria-label="Active dataset status">
+        <span class="status-dot"></span>
+        <div><small>Active dataset</small><strong id="dataset-name">Loading dataset</strong></div>
+      </div>
+      <div class="topbar-metrics">
+        <span><b id="aisle-count">–</b> aisles</span><span><b id="object-count">–</b> objects</span><span><b id="view-count">–</b> views</span>
+      </div>
+      <button id="conversation-toggle" class="icon-button" type="button" aria-expanded="true" aria-controls="conversation-panel">Chat</button>
+    </header>
+
+    <main class="workspace">
+      <aside id="conversation-panel" class="conversation-panel">
+        <div class="conversation-header">
+          <div><p class="eyebrow">Assistant</p><h2>Conversation</h2></div>
+          <button id="new-conversation" class="text-button" type="button">New chat</button>
+        </div>
+        <div class="mode-switch" role="group" aria-label="Interaction mode">
+          <button type="button" class="active" data-mode="auto">Auto</button>
+          <button type="button" data-mode="chat">Chat</button>
+          <button type="button" data-mode="map">Map</button>
+        </div>
+        <section id="chat-history" class="chat-history" aria-live="polite">
+          <article class="welcome-message">
+            <div class="assistant-avatar">AI</div>
+            <div><strong>Ask about the semantic map</strong><p>Find objects, inspect physical properties, retrieve map coordinates, or review navigation evidence.</p></div>
+          </article>
+          <div id="suggestions" class="suggestions">
+            <button data-query="Find the ladder">Find the ladder</button>
+            <button data-query="Show me the wheelbarrow">Show the wheelbarrow</button>
+            <button data-query="Which objects are made of plastic?">List plastic objects</button>
+            <button data-query="Can the robot pass around the ladder?">Check a route</button>
+          </div>
+        </section>
+        <div id="active-context" class="active-context hidden">
+          <div><small>Active object</small><strong id="context-label"></strong><span id="context-id"></span></div>
+          <button id="clear-context" type="button">Clear</button>
+        </div>
+        <form id="search-form" class="composer">
+          <label for="query">Ask the greenhouse map</label>
+          <textarea id="query" name="query" rows="2" autocomplete="off" placeholder="Ask a question about the map"></textarea>
+          <div class="composer-footer"><span id="composer-mode">Auto routing</span><button type="submit">Send</button></div>
+        </form>
+      </aside>
+
+      <section class="evidence-workspace">
+        <section id="loading" class="loading-overlay hidden" aria-live="polite">
+          <span class="spinner"></span><div><strong>Searching the semantic map</strong><p>Checking objects, views and verified evidence.</p></div>
+        </section>
+        <section id="empty" class="empty-state">
+          <div class="empty-illustration" aria-hidden="true"><span class="empty-greenhouse">Greenhouse</span><i></i><span class="empty-aisle">Aisle</span><i></i><span class="empty-object">Object</span></div>
+          <p class="eyebrow">Verified map exploration</p><h2>Evidence appears here</h2>
+          <p>Select a suggested question or ask naturally. The workspace keeps the answer, images, semantic record and HMSG neighborhood together.</p>
+        </section>
+        <section id="not-found" class="not-found hidden">
+          <div class="not-found-icon">?</div><div><p class="eyebrow">No verified match</p><h2>We could not ground that request</h2><p id="not-found-text"></p></div>
+        </section>
+
+        <section id="results" class="results hidden">
+          <div class="result-toolbar">
+            <nav id="breadcrumb" class="breadcrumb" aria-label="Object hierarchy"></nav>
+            <div class="result-badges"><span id="answer-source" class="badge"></span><span id="routing-source" class="badge"></span><span id="intent-badge" class="badge badge-blue"></span></div>
+          </div>
+          <article class="answer-card">
+            <div class="answer-copy"><p class="eyebrow">Grounded answer</p><p id="answer"></p></div><div id="confidence" class="confidence"></div>
+          </article>
+          <div id="object-list" class="object-list hidden"></div>
+
+          <div class="dashboard-grid">
+            <article class="card gallery-card">
+              <div class="card-heading"><div><p class="eyebrow">Visual evidence</p><h2>Object observations</h2></div><span id="image-count" class="card-meta"></span></div>
+              <div class="tab-list" role="tablist" aria-label="Image evidence">
+                <button type="button" class="active" data-image-tab="overview">Overview</button><button type="button" data-image-tab="views">All views</button><button type="button" data-image-tab="overlay">Segmentation</button>
+              </div>
+              <div id="image-gallery" class="image-gallery"></div>
+            </article>
+
+            <article class="card facts-card">
+              <div class="card-heading"><div><p class="eyebrow">Verified record</p><h2 id="object-label">Object</h2></div><span id="aisle" class="location-pill"></span></div>
+              <div class="object-identity"><span id="object-id"></span><span id="frame-id"></span></div>
+              <section class="fact-section"><h3>Identity</h3><dl id="identity-facts"></dl></section>
+              <section class="fact-section"><h3>Physical properties</h3><dl id="physical-facts"></dl></section>
+              <section class="fact-section"><h3>Map geometry</h3><dl id="geometry-facts"></dl></section>
+            </article>
+
+            <article class="card graph-card">
+              <div class="card-heading"><div><p class="eyebrow">HMSG neighborhood</p><h2>Scene hierarchy</h2></div><div class="graph-legend"><span class="focus-key">Selected</span><span class="context-key">Same aisle</span><span class="view-key">View</span></div></div>
+              <p class="card-description">The selected object is emphasized. Nearby object nodes provide aisle context; select one to inspect it.</p>
+              <div class="graph-scroll"><svg id="scene-graph" viewBox="0 0 820 390" role="img" aria-label="Greenhouse semantic scene graph"></svg></div>
+            </article>
+
+            <article class="card traversal-card">
+              <div class="card-heading"><div><p class="eyebrow">Robot navigation</p><h2>Object and route</h2></div><span id="verification-badge" class="verification-badge">Verification required</span></div>
+              <div class="navigation-status">
+                <div><small>Object</small><strong id="object-traversability"></strong><p>The robot should not drive through a non-traversable object.</p></div>
+                <div><small>Observed route</small><strong id="path-assessment"></strong><p id="clearance"></p></div>
+              </div>
+              <div class="assessment-source"><span>Assessment</span><strong id="assessment-source">Semantic and geometric evidence</strong></div>
+              <p id="reason" class="reason"></p>
+              <div class="warning"><strong>Motion safety</strong><span>Validate free space with the calibrated robot footprint and local costmap before motion.</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <dialog id="image-dialog" class="image-dialog"><button id="close-image" type="button">Close</button><img id="dialog-image" alt="Expanded map evidence"><p id="dialog-caption"></p></dialog>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

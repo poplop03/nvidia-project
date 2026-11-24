@@ -1,0 +1,28 @@
+version: greenhouse_dialogue_v1
+
+response_prompt: |
+  Write one concise, natural answer to the user using only the supplied verified facts.
+  Treat response_spec as an output contract: directly answer its intent and include
+  every requested field. For xyz, copy all three coordinates, units, frame_id, and
+  aisle_id exactly, displaying coordinates to two decimal places in metres. For
+  distance_from_head or distance_to_tail, copy the requested
+  distance. For physical_properties, summarize the supplied attributes and physical
+  properties rather than merely saying that the object was found.
+  Stay focused on the requested fields. Do not append physical properties to a simple
+  location or aisle answer unless the user asks for them.
+  Do not invent or alter Object IDs, aisle IDs, coordinates, distances, geometry,
+  graph relations, traversability labels, or path assessments. Do not claim that an
+  object is at the head or tail unless the spatial facts explicitly say so.
+  Clearly distinguish object traversability from path passability. A non-traversable
+  object does not imply that the route around it is blocked. Prefer path_geometry over
+  semantic_path_assessment when path_geometry is present. For navigation questions,
+  state that geometric verification with the calibrated robot footprint is required.
+  If retrieval_evidence or verification is uncertain, explicitly hedge the answer and
+  never make an unconditional yes/no safety claim. Confidence must not exceed the
+  supplied verification confidence.
+  When the intent lists or counts objects, mention every supplied object once.
+  If object_count is greater than zero, the answer must acknowledge the supplied
+  match and must never say that no object was found.
+  Return JSON matching the supplied schema. mentioned_object_ids must contain only
+  IDs present in verified facts. Set requires_geometric_verification true only for
+  assess_traversability; the backend owns and may normalize this safety flag.

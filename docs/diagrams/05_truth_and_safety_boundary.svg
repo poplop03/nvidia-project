@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="626" viewBox="0 0 1360 626">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#475569"/></marker>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#2563EB"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#D97706"/></marker>
+<marker id="arrow-rose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#E11D48"/></marker>
+<marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#7C3AED"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#059669"/></marker>
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.06"/></filter>
+</defs>
+<rect width="1360" height="626" fill="#FFFFFF"/>
+<text x="32" y="38" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#0F172A">5. Truth &amp; Navigation Safety Boundary (Deterministic Geometry vs. Advisory VLM)</text>
+<text x="32" y="60" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">Core project invariant: Gemma 4 provides semantic priors only and can never override IDs, geometry, or motion safety</text>
+<rect x="36" y="92" width="608" height="226" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="50" y="115" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#1E40AF">DETERMINISTIC GROUND TRUTH  (Python + LiDAR + Depth + SQLite)</text>
+<rect x="58" y="134" width="270" height="164" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="58" y="134" width="270" height="6" rx="3" fill="#2563EB"/>
+<rect x="68" y="146" width="105" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="120.5" y="158.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">AUTHORITATIVE</text>
+<text x="70" y="180" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Identity &amp; Hierarchy</text>
+<text x="70" y="198" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Stable object_id &amp; view_id</text>
+<text x="70" y="214" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Greenhouse &amp; aisle_id assignment</text>
+<text x="70" y="230" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Verified View OBSERVES Object</text>
+<text x="70" y="246" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Source: M1–M5 &amp; SQLite FKs</text>
+<text x="70" y="262" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Immutable to VLM stages</text>
+<rect x="352" y="134" width="270" height="164" rx="9" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="352" y="134" width="270" height="6" rx="3" fill="#2563EB"/>
+<rect x="362" y="146" width="105" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+<text x="414.5" y="158.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1E40AF">AUTHORITATIVE</text>
+<text x="364" y="180" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Metric Geometry (camera_init)</text>
+<text x="364" y="198" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• 3D centroid &amp; 3D bounding box</text>
+<text x="364" y="214" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Depth stats &amp; observation count</text>
+<text x="364" y="230" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Centerline s, head/tail meters</text>
+<text x="364" y="246" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Lateral centerline offset (m)</text>
+<text x="364" y="262" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Never estimated by Gemma 4</text>
+<rect x="716" y="92" width="608" height="226" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="730" y="115" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="0.4" fill="#92400E">ADVISORY SEMANTIC PRIORS  (Gemma 4 via Ollama — Strict Pydantic JSON)</text>
+<rect x="738" y="134" width="270" height="164" rx="9" fill="#FFFFFF" stroke="#D97706" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="738" y="134" width="270" height="6" rx="3" fill="#D97706"/>
+<rect x="748" y="146" width="112" height="18" rx="9" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+<text x="804.0" y="158.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#92400E">SEMANTIC PRIOR</text>
+<text x="750" y="180" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Object Physical Priors</text>
+<text x="750" y="198" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• rigidity, deformability, fragility</text>
+<text x="750" y="214" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• compressibility, mass class</text>
+<text x="750" y="230" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• object_traversability prior:</text>
+<text x="750" y="246" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">  forbidden / avoid / allowed</text>
+<text x="750" y="262" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• potential_risks &amp; visual evidence</text>
+<rect x="1032" y="134" width="270" height="164" rx="9" fill="#FFFFFF" stroke="#D97706" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="1032" y="134" width="270" height="6" rx="3" fill="#D97706"/>
+<rect x="1042" y="146" width="105" height="18" rx="9" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+<text x="1094.5" y="158.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#92400E">ADVISORY ONLY</text>
+<text x="1044" y="180" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Scene Route Cues (Separate!)</text>
+<text x="1044" y="198" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• vlm_path_assessment:</text>
+<text x="1044" y="214" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">  passable / blocked / uncertain</text>
+<text x="1044" y="230" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• can_robot_pass (bool / null)</text>
+<text x="1044" y="246" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• blocking_object_ids (disjoint)</text>
+<text x="1044" y="262" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">• Validated against linked IDs</text>
+<rect x="240" y="372" width="880" height="74" rx="9" fill="#FFFFFF" stroke="#E11D48" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="240" y="372" width="880" height="6" rx="3" fill="#E11D48"/>
+<text x="252" y="397" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">MANDATORY SAFETY GATE:   requires_geometric_verification: true</text>
+<text x="252" y="415" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Enforced by Pydantic schema (M6), retrieval (M8), dialogue guardrails (M8.2), and Web UI safety banner</text>
+<line x1="340" y1="318" x2="520" y2="372" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+<rect x="333.0" y="338.0" width="174.0" height="16" rx="4" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="420.0" y="350.0" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#2563EB">Verified IDs &amp; 3D metrics</text>
+<line x1="1020" y1="318" x2="840" y2="372" stroke="#D97706" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+<rect x="862.6" y="338.0" width="154.8" height="16" rx="4" fill="#FFFFFF" fill-opacity="0.95"/>
+<text x="940.0" y="350.0" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#D97706">Advisory priors &amp; cues</text>
+<rect x="130" y="492" width="470" height="102" rx="9" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="130" y="492" width="470" height="6" rx="3" fill="#7C3AED"/>
+<rect x="140" y="504" width="98" height="18" rx="9" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1"/>
+<text x="189.0" y="516.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#5B21B6">PLANNED (M9)</text>
+<text x="142" y="538" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Future M9: Geometric + Semantic Policy Fusion</text>
+<text x="142" y="556" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Combine VLM physical prior + LiDAR/depth object height &amp; width</text>
+<text x="142" y="572" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">+ calibrated robot footprint, ground clearance &amp; local costmap</text>
+<rect x="760" y="492" width="470" height="102" rx="9" fill="#FFFFFF" stroke="#E11D48" stroke-width="1.7" filter="url(#shadow)"/>
+<rect x="760" y="492" width="470" height="6" rx="3" fill="#E11D48"/>
+<rect x="770" y="504" width="98" height="18" rx="9" fill="#FFF1F2" stroke="#E11D48" stroke-width="1"/>
+<text x="819.0" y="516.5" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#9F1239">GATED OUTPUT</text>
+<text x="772" y="538" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.8" font-weight="700" fill="#0F172A">Robot Navigation / Nav2 Execution</text>
+<text x="772" y="556" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">ONLY traversability_decision after M9 geometric fusion</text>
+<text x="772" y="572" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#475569">Current M1–M8.2.1 system performs ZERO robot motion</text>
+<line x1="560" y1="446" x2="400" y2="492" stroke="#E11D48" stroke-width="1.8" marker-end="url(#arrow-rose)"/>
+<line x1="600" y1="543" x2="760" y2="543" stroke="#E11D48" stroke-width="1.8" marker-end="url(#arrow-rose)"/>
+<text x="680.0" y="535.0" text-anchor="middle" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#E11D48">final_traversability</text>
+</svg>

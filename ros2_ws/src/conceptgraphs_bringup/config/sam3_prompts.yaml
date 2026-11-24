@@ -1,0 +1,13 @@
+prompt_version: greenhouse_objects_v2
+
+prompts:
+  - text: yellow plastic container on the ground
+    canonical_label: yellow_plastic_container
+  - text: red plastic container on the ground
+    canonical_label: red_plastic_container
+  - text: blue plastic container on the ground
+    canonical_label: blue_plastic_container
+  - text: ladder
+    canonical_label: ladder
+  - text: wheelbarrow
+    canonical_label: wheelbarrow

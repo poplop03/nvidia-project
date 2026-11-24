@@ -1,0 +1,18 @@
+# The referenced layout currently contains provisional trajectory-derived
+# polygons. The output directory is separate from the completed single-aisle
+# dataset and cannot overwrite it.
+extends: ../keyframe_extractor.yaml
+
+dataset_id: greenhouse_20261029_three_aisles
+bag_path: data/bags/nvidia_data_20261029_145306_3_aisle_multi_object_humble
+output_dir: data/datasets/greenhouse_20261029_three_aisles
+layout_path: layouts/greenhouse_20261029_three_aisles.yaml
+
+aisle_assignment:
+  method: polygon_then_nearest
+  maximum_distance_m: 4.0
+
+association:
+  version: greenhouse_association_v2
+  mode: spatial_label_cluster
+  spatial_cluster_radius_m: 1.5
